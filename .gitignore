@@ -1,0 +1,69 @@
+############################
+# IntelliJ / IDE
+############################
+.idea/
+*.iml
+out/
+.vscode/
+
+############################
+# OS junk
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# Gradle / Java
+############################
+backend/.gradle/
+build/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+############################
+# Node / React Native
+############################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+############################
+# React Native
+############################
+# Metro / cache
+.metro/
+.expo/
+.expo-shared/
+*.log
+
+# iOS
+ios/Pods/
+ios/build/
+ios/*.xcworkspace
+ios/*.xcuserdata
+
+# Android
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+
+############################
+# Env files
+############################
+.env
+.env.*
+!.env.example
+
+############################
+# Coverage / test output
+############################
+coverage/
+
+############################
+# Misc
+############################
+.tmp/
+.cache/
