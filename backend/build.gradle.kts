@@ -30,6 +30,7 @@ dependencies {
     implementation("org.flywaydb:flyway-core")
     implementation("org.flywaydb:flyway-database-postgresql")
     implementation("org.postgresql:postgresql:42.7.3")
+    runtimeOnly("org.postgresql:postgresql")
 }
 
 tasks.withType<Test> {
