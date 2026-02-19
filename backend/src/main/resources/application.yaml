@@ -12,6 +12,12 @@ spring:
     hibernate:
       ddl-auto: none
 
+  s3:
+    endpoint: http://localhost:9000
+    accessKey: admin
+    secretKey: password123
+    bucket: images
+
   docker:
     compose:
       enabled: false
@@ -20,7 +26,6 @@ spring:
     enabled: true
     locations: classpath:db/migration
     baseline-on-migrate: true
-
 
 
 server:
