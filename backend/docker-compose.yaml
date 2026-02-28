@@ -15,6 +15,20 @@ services:
     volumes:
       - postgresql_data:/var/lib/postgresql
 
+  minio:
+    image: minio/minio
+    container_name: local-minio
+    ports:
+      - "9000:9000"   # S3 API
+      - "9001:9001"   # Web Console
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password123
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio-data:/data
+
 volumes:
   postgresql_data:
     driver: local
+  minio-data:
