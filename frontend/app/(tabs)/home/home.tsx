@@ -14,7 +14,6 @@ const TabHome = () => {
 
     return (
         <>
-        <Header title={'Home'}/>
         <ScrollView>
             <View>
             {posts.map(post => (

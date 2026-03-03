@@ -1,6 +1,7 @@
-import {View, Text, StyleSheet} from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity} from "react-native";
 import {Post} from "@/util/types";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import {useRouter} from "expo-router";
 
 
 interface RestaurantPostProps {
@@ -8,12 +9,18 @@ interface RestaurantPostProps {
 }
 
 const RestaurantPost = ({post}: RestaurantPostProps) => {
+    const router = useRouter();
 
     const postTime = new Date(post!.createdOn)
     const convertedPostTime = postTime.toLocaleDateString();
 
+    const handlePress = () => {
+        router.push(`/home/restaurant/(details)`)
+    };
+
     return (
         <Card style={styles.card}>
+            <TouchableOpacity onPress={handlePress}>
             <CardHeader>
                 <CardTitle>{post?.restaurant.name}</CardTitle>
                 <CardDescription>{post?.createdBy.username}</CardDescription>
@@ -24,6 +31,7 @@ const RestaurantPost = ({post}: RestaurantPostProps) => {
             <CardFooter>
                 <Text>{convertedPostTime}</Text>
             </CardFooter>
+            </TouchableOpacity>
         </Card>
     );
 };
