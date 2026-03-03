@@ -2,13 +2,16 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {useEffect, useState} from "react";
+import {samplePosts, sampleRestaurants} from "@/util/sampleData";
+import {Restaurant} from "@/util/types";
 
 export default function RestaurantPage() {
     const { id } = useLocalSearchParams<{ id: string }>();
-    const [restaurant, setRestaurant] = useState(null);
+    const [restaurant, setRestaurant] = useState<Restaurant | undefined>(undefined);
 
     useEffect(() => {
-
+        const getRestaurant = sampleRestaurants.find((rest) => rest.id === Number(id));
+        setRestaurant(getRestaurant)
     }, [id]);
 
     return (
@@ -16,7 +19,7 @@ export default function RestaurantPage() {
             <ScrollView contentContainerStyle={styles.content}>
 
                 {/* Restaurant Header */}
-                <Text style={styles.name}>Restaurant Name</Text>
+                <Text style={styles.name}>{restaurant?.name}</Text>
                 <Text style={styles.subtitle}>Cuisine</Text>
 
                 {/* Info Section */}

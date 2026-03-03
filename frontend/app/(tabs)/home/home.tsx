@@ -3,7 +3,6 @@ import {ScrollView, View} from "react-native";
 import {Post} from "@/util/types";
 import {samplePosts} from "@/util/sampleData";
 import RestaurantPost from "@/components/restaurantPost";
-import {Header} from "@react-navigation/elements";
 
 const TabHome = () => {
     const [posts, setPosts] = useState<Post[]>([]);

@@ -15,7 +15,7 @@ const RestaurantPost = ({post}: RestaurantPostProps) => {
     const convertedPostTime = postTime.toLocaleDateString();
 
     const handlePress = () => {
-        router.push(`/home/restaurant/(details)`)
+        router.push(`/home/${post!.restaurant.id}`);
     };
 
     return (
