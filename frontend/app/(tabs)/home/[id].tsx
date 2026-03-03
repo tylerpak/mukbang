@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { useLocalSearchParams } from "expo-router";
+import {Stack, useLocalSearchParams} from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {useEffect, useState} from "react";
-import {samplePosts, sampleRestaurants} from "@/util/sampleData";
+import {sampleRestaurants} from "@/util/sampleData";
 import {Restaurant} from "@/util/types";
 
 export default function RestaurantPage() {
@@ -11,11 +11,12 @@ export default function RestaurantPage() {
 
     useEffect(() => {
         const getRestaurant = sampleRestaurants.find((rest) => rest.id === Number(id));
-        setRestaurant(getRestaurant)
+        setRestaurant(getRestaurant);
     }, [id]);
 
     return (
         <SafeAreaView style={styles.container}>
+            <Stack.Screen options={{ title: restaurant?.name ?? "Restaurant" }} />
             <ScrollView contentContainerStyle={styles.content}>
 
                 {/* Restaurant Header */}
