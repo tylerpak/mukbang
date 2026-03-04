@@ -1,6 +1,6 @@
 import {Header} from "@react-navigation/elements";
 import {View, Text, TextInput, Pressable} from "react-native";
-import {saveUser} from "@/util/client";
+import {saveUser} from "@/client/client";
 import {useState} from "react";
 import {Card, CardHeader} from "@/components/ui/card";
 

@@ -1,26 +1,12 @@
-import {Tabs} from 'expo-router';
-import React from 'react';
-import {useColorScheme} from "react-native";
+import { Tabs } from "expo-router";
 
-export default function TabLayout() {
-    const colorScheme = useColorScheme();
-
+export default function TabsLayout() {
     return (
-        <Tabs
-            screenOptions={{
-                headerShown: false,
-            }}>
-            <Tabs.Screen
-                name="login"
-                options={{
-                    title: 'Login',
-                }}
-            />
+        <Tabs screenOptions={{ headerShown: false }}>
+            <Tabs.Screen name="login" />
             <Tabs.Screen
                 name="home"
-                options={{
-                    title: 'Home',
-                }}
+                options={{ headerShown: false }}
             />
         </Tabs>
     );
