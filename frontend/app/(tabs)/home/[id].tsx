@@ -1,9 +1,9 @@
-import { View, Text, ScrollView } from "react-native";
-import { Stack, useLocalSearchParams } from "expo-router";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {Stack, useLocalSearchParams} from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useEffect, useState } from "react";
-import { sampleRestaurants } from "@/util/sampleData";
-import { Restaurant } from "@/util/types";
+import {useEffect, useState} from "react";
+import {sampleRestaurants} from "@/util/sampleData";
+import {Restaurant} from "@/util/types";
 
 export default function RestaurantPage() {
     const { id } = useLocalSearchParams<{ id: string }>();
@@ -13,8 +13,6 @@ export default function RestaurantPage() {
         const getRestaurant = sampleRestaurants.find((rest) => rest.id === Number(id));
         setRestaurant(getRestaurant);
     }, [id]);
-
-    if (!restaurant) return null;
 
     return (
         <SafeAreaView className="flex-1 bg-white">
