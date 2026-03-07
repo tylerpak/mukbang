@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import {Stack, useLocalSearchParams} from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {useEffect, useState} from "react";
