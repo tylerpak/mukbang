@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, View, Text, ScrollView} from "react-native";
 import {sampleRestaurants} from "@/util/sampleData";
-import RestaurantCard from "@/components/restaurantCard";
+import RestaurantCard from "@/components/RestaurantCard";
 import {Stack} from "expo-router";
 import {Restaurant} from "@/util/types"
 
