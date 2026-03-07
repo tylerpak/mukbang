@@ -1,48 +1,41 @@
-import {View, Text, StyleSheet, TouchableOpacity} from "react-native";
-import {Post} from "@/util/types";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
-import {useRouter} from "expo-router";
-
+import { View, Text, TouchableOpacity } from "react-native";
+import { Post } from "@/util/types";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useRouter } from "expo-router";
+import { ButtonLoadingPreview } from "loading";
 
 interface RestaurantPostProps {
-    post?: Post
+    post?: Post;
 }
 
-const RestaurantPost = ({post}: RestaurantPostProps) => {
+const RestaurantPost = ({ post }: RestaurantPostProps) => {
     const router = useRouter();
 
-    const postTime = new Date(post!.createdOn)
+    const postTime = new Date(post.createdOn);
     const convertedPostTime = postTime.toLocaleDateString();
 
     const handlePress = () => {
-        router.push(`/home/${post!.restaurant.id}`);
+        router.push(`/home/${post.restaurant.id}`);
     };
 
     return (
-        <Card style={styles.card}>
-            <TouchableOpacity onPress={handlePress}>
-            <CardHeader>
-                <CardTitle>{post?.restaurant.name}</CardTitle>
-                <CardDescription>{post?.createdBy.username}</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <Text>{post?.description}</Text>
-            </CardContent>
-            <CardFooter>
-                <Text>{convertedPostTime}</Text>
-            </CardFooter>
-            </TouchableOpacity>
-        </Card>
+        <TouchableOpacity onPress={handlePress} className="mb-3">
+            <Card className="p-4 rounded-xl bg-white">
+                <CardHeader>
+                    <CardTitle className="text-lg font-semibold">{post.restaurant.name}</CardTitle>
+                    <CardDescription className="text-sm text-gray-500">{post.createdBy.username}</CardDescription>
+                </CardHeader>
+
+                <CardContent>
+                    <Text className="text-gray-800">{post.description}</Text>
+                </CardContent>
+
+                <CardFooter>
+                    <Text className="text-xs text-gray-400">{convertedPostTime}</Text>
+                </CardFooter>
+            </Card>
+        </TouchableOpacity>
     );
 };
-
-const styles = StyleSheet.create({
-    card: {
-        marginBottom: 12,
-        padding: 16,
-        borderRadius: 12,
-        backgroundColor: "#fff",
-    },
-});
 
 export default RestaurantPost;
