@@ -15,34 +15,74 @@ export default function RestaurantPage() {
     }, [id]);
 
     return (
-        <SafeAreaView className="flex-1 bg-white">
-            <Stack.Screen options={{ title: restaurant.name }} />
+        <SafeAreaView style={styles.container}>
+            <Stack.Screen options={{ title: restaurant?.name ?? "Restaurant" }} />
+            <ScrollView contentContainerStyle={styles.content}>
 
-            <ScrollView contentContainerStyle={{ padding: 5 }} className="px-5 py-4">
+                {/* Restaurant Header */}
+                <Text style={styles.name}>{restaurant?.name}</Text>
+                <Text style={styles.subtitle}>Cuisine</Text>
 
-                <Text className="text-3xl font-bold mb-1">{restaurant.name}</Text>
-                <Text className="text-sm text-gray-500 mb-5">Cuisine</Text>
-
-                <View className="mb-6 p-4 rounded-xl bg-gray-100">
-                    <Text className="text-lg font-semibold mb-2">About</Text>
-                    <Text className="text-gray-700 text-sm">
+                {/* Info Section */}
+                <View style={styles.section}>
+                    <Text style={styles.sectionTitle}>About</Text>
+                    <Text style={styles.sectionText}>
                         where the restaurant description will go
                     </Text>
                 </View>
 
-                <View className="mb-6 p-4 rounded-xl bg-gray-100">
-                    <Text className="text-lg font-semibold mb-2">Location</Text>
-                    <Text className="text-gray-700 text-sm">
+                {/* Address Section */}
+                <View style={styles.section}>
+                    <Text style={styles.sectionTitle}>Location</Text>
+                    <Text style={styles.sectionText}>
                         123 Main St, Austin, TX
                     </Text>
                 </View>
 
-                <View className="mb-6 p-4 rounded-xl bg-gray-100">
-                    <Text className="text-lg font-semibold mb-2">Reviews</Text>
-                    <Text className="text-gray-700 text-sm">
+                {/* Reviews Section */}
+                <View style={styles.section}>
+                    <Text style={styles.sectionTitle}>Reviews</Text>
+                    <Text style={styles.sectionText}>
+
                     </Text>
                 </View>
+
             </ScrollView>
         </SafeAreaView>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#fff",
+    },
+    content: {
+        padding: 20,
+    },
+    name: {
+        fontSize: 28,
+        fontWeight: "bold",
+        marginBottom: 4,
+    },
+    subtitle: {
+        fontSize: 14,
+        color: "#777",
+        marginBottom: 20,
+    },
+    section: {
+        marginBottom: 24,
+        padding: 16,
+        borderRadius: 12,
+        backgroundColor: "#f5f5f5",
+    },
+    sectionTitle: {
+        fontSize: 18,
+        fontWeight: "600",
+        marginBottom: 8,
+    },
+    sectionText: {
+        fontSize: 14,
+        color: "#444",
+    },
+});
