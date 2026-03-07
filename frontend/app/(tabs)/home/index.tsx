@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {ScrollView, View} from "react-native";
-import {Post} from "@/util/types";
-import {samplePosts} from "@/util/sampleData";
-import RestaurantPost from "@/components/restaurantPost";
+import {sampleRestaurants} from "@/util/sampleData";
+import RestaurantCard from "@/components/restaurantCard";
 import {Stack} from "expo-router";
+import {Restaurant} from "@/util/types"
 
 const TabHome = () => {
-    const [posts, setPosts] = useState<Post[]>([]);
+    const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
 
     useEffect(() => {
-        setPosts(samplePosts);
+        setRestaurants(sampleRestaurants);
     }, []);
 
     return (
@@ -17,8 +17,8 @@ const TabHome = () => {
             <Stack.Screen options={{title: "Home"}}/>
             <ScrollView>
             <View>
-                {posts.map(post => (
-                    <RestaurantPost key={post.id} post={post}/>
+                {restaurants.map(restaurant => (
+                    <RestaurantCard key={restaurant.id} restaurant={restaurant}/>
                 ))}
             </View>
             </ScrollView>
