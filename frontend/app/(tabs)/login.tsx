@@ -1,4 +1,3 @@
-import {Header} from "@react-navigation/elements";
 import {View, Text, TextInput, Pressable} from "react-native";
 import {saveUser} from "@/client/client";
 import {useState} from "react";
@@ -14,7 +13,6 @@ const TabLogin = () => {
 
     return (
         <View className={"flex-col-1 flex"}>
-            <Header title={"Login or Sign up"}/>
             <Card className={"items-center"}>
                 <CardHeader>
                     <Text>Enter Your Info:</Text>
