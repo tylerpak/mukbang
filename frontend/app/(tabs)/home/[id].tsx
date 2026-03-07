@@ -4,7 +4,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useEffect, useState } from "react";
 import { sampleRestaurants } from "@/util/sampleData";
 import { Restaurant } from "@/util/types";
-import Loading from "@/components/loading";
 
 export default function RestaurantPage() {
     const { id } = useLocalSearchParams<{ id: string }>();
@@ -15,7 +14,7 @@ export default function RestaurantPage() {
         setRestaurant(getRestaurant);
     }, [id]);
 
-    if (!restaurant) return <Loading />;
+    if (!restaurant) return null;
 
     return (
         <SafeAreaView className="flex-1 bg-white">
