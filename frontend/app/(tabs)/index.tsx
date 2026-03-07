@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ScrollView, View} from "react-native";
+import {FlatList, View, Text, ScrollView} from "react-native";
 import {sampleRestaurants} from "@/util/sampleData";
 import RestaurantCard from "@/components/restaurantCard";
 import {Stack} from "expo-router";
@@ -15,12 +15,10 @@ const TabHome = () => {
     return (
         <>
             <Stack.Screen options={{title: "Home"}}/>
-            <ScrollView>
-            <View>
-                {restaurants.map(restaurant => (
-                    <RestaurantCard key={restaurant.id} restaurant={restaurant}/>
-                ))}
-            </View>
+            <ScrollView className={'flex-1'} contentContainerClassName={'gap-5 p-4'}>
+                {restaurants.map((restaurant) =>
+                    <RestaurantCard restaurant={restaurant} key={restaurant.id}/>
+                )}
             </ScrollView>
         </>
     );

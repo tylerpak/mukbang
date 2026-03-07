@@ -1,5 +1,6 @@
 import {Restaurant} from "@/util/types";
-import {Card, CardHeader, CardTitle} from "@/components/ui/card";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+import {Text} from "react-native";
 
 interface RestaurantCardProps  {
     restaurant: Restaurant
@@ -13,6 +14,9 @@ const RestaurantCard = ( {restaurant}: RestaurantCardProps) => {
                 <CardHeader>
                    <CardTitle>{restaurant.name}</CardTitle>
                 </CardHeader>
+                <CardContent>
+                    <Text>Deals:</Text>
+                </CardContent>
             </Card>
     );
 };
