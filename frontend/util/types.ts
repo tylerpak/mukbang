@@ -14,7 +14,7 @@ export interface Post {
 }
 
 export interface Restaurant {
-    id?: number,
+    id: number,
     name: string,
     posts?: Post[],
 }
