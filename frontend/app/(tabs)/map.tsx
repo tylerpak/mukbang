@@ -27,7 +27,7 @@ const Map = () => {
 
     return (
         <View className={'flex-1'}>
-            <MapView style={{flex: 1}} initialRegion={{
+            <MapView style={{flex: 1}}  region={{
                 latitude: location.coords.latitude,
                 longitude: location.coords.longitude,
                 latitudeDelta: 0.0922,
