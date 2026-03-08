@@ -1,11 +1,10 @@
-import {View, Text, TextInput, Pressable} from "react-native";
+import {Pressable, Text, TextInput, View} from "react-native";
 import {saveUser} from "@/client/client";
 import {useState} from "react";
 import {Card, CardHeader} from "@/components/ui/card";
 
 const TabLogin = () => {
     const [userEmail, setUserEmail] = useState("");
-    const [focused, setFocused] = useState(false);
 
     const handleSubmitUser = () => {
         console.log(userEmail);
