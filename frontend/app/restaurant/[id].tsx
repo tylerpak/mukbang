@@ -2,16 +2,22 @@ import { View, Text, ScrollView } from "react-native";
 import {Stack, useLocalSearchParams} from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {useEffect, useState} from "react";
-import {sampleRestaurants} from "@/util/sampleData";
-import {Restaurant} from "@/util/types";
+import {samplePosts, sampleRestaurants} from "@/util/sampleData";
+import {Post, Restaurant} from "@/util/types";
+import RestaurantPost from "@/components/RestaurantPost";
 
 export default function RestaurantPage() {
     const { id } = useLocalSearchParams<{ id: string }>();
     const [restaurant, setRestaurant] = useState<Restaurant | undefined>(undefined);
+    const [reviews, setReviews] = useState<Post[]>([]);
+
+    const getRestaurant = sampleRestaurants.find((rest) => rest.id === Number(id));
+    const getReviews = samplePosts.filter((reviews) => reviews.restaurant.id === Number(id));
 
     useEffect(() => {
-        const getRestaurant = sampleRestaurants.find((rest) => rest.id === Number(id));
         setRestaurant(getRestaurant);
+        setReviews(getReviews);
+        console.log(getReviews)
     }, [id]);
 
     if (!restaurant) return null;
@@ -41,8 +47,9 @@ export default function RestaurantPage() {
 
                 <View className="mb-6 p-4 rounded-xl bg-gray-100">
                     <Text className="text-lg font-semibold mb-2">Reviews</Text>
-                    <Text className="text-gray-700 text-sm">
-                    </Text>
+                    {reviews.map((review) => (
+                        <RestaurantPost key={review.id} post={review}/>
+                    ))}
                 </View>
             </ScrollView>
         </SafeAreaView>

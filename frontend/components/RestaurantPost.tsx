@@ -9,18 +9,11 @@ interface RestaurantPostProps {
 }
 
 const RestaurantPost = ({post}: RestaurantPostProps) => {
-    const router = useRouter();
-
     const postTime = new Date(post!.createdOn)
     const convertedPostTime = postTime.toLocaleDateString();
 
-    const handlePress = () => {
-        router.push(`/restaurant/${post!.restaurant.id}`);
-    };
-
     return (
         <Card style={styles.card}>
-            <TouchableOpacity onPress={handlePress}>
             <CardHeader>
                 <CardTitle>{post?.restaurant.name}</CardTitle>
                 <CardDescription>{post?.createdBy.username}</CardDescription>
@@ -31,7 +24,6 @@ const RestaurantPost = ({post}: RestaurantPostProps) => {
             <CardFooter>
                 <Text>{convertedPostTime}</Text>
             </CardFooter>
-            </TouchableOpacity>
         </Card>
     );
 };
