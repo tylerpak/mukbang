@@ -12,30 +12,39 @@ const TabLogin = () => {
     }
 
     return (
-        <View className={"flex-col-1 flex"}>
-            <Card className={"items-center"}>
+        <View className="flex-1 justify-center px-6">
+            <Card className="items-center p-6">
                 <CardHeader>
-                    <Text>Enter Your Info:</Text>
+                    <Text className="text-lg font-semibold">Enter Your Info:</Text>
                 </CardHeader>
-                <View>
-                    <Text>Email:</Text>
+
+                <View className="w-full flex flex-col gap-3">
+                    <Text className="text-sm font-medium">Email:</Text>
                     <TextInput
                         numberOfLines={1}
-                        placeholder={"youremail@address.com"}
+                        placeholder="youremail@address.com"
                         value={userEmail}
                         onChangeText={setUserEmail}
+                        className="border border-gray-300 rounded-md px-3 py-2"
                     />
-                    <Text>Password:</Text>
+
+                    <Text className="text-sm font-medium">Password:</Text>
                     <TextInput
                         numberOfLines={1}
-                        placeholder={"youremail@address.com"}
+                        placeholder="youremail@address.com"
+                        className="border border-gray-300 rounded-md px-3 py-2"
                     />
+
                     <Pressable
                         onPress={() => handleSubmitUser()}
-                    ><Text>Submit</Text></Pressable>
+                        className="bg-blue-500 rounded-md py-3 items-center mt-2"
+                    >
+                        <Text className="text-white font-semibold">Submit</Text>
+                    </Pressable>
                 </View>
             </Card>
-        </View>);
+        </View>
+    );
 };
 
 export default TabLogin;
