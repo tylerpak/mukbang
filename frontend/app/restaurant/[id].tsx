@@ -5,11 +5,13 @@ import {useEffect, useState} from "react";
 import {samplePosts, sampleRestaurants} from "@/util/sampleData";
 import {Post, Restaurant} from "@/util/types";
 import RestaurantPost from "@/components/RestaurantPost";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 
 export default function RestaurantPage() {
     const { id } = useLocalSearchParams<{ id: string }>();
     const [restaurant, setRestaurant] = useState<Restaurant | undefined>(undefined);
     const [reviews, setReviews] = useState<Post[]>([]);
+    const [tab, setTab] = useState('deals');
 
     const getRestaurant = sampleRestaurants.find((rest) => rest.id === Number(id));
     const getReviews = samplePosts.filter((reviews) => reviews.restaurant.id === Number(id));
@@ -17,7 +19,6 @@ export default function RestaurantPage() {
     useEffect(() => {
         setRestaurant(getRestaurant);
         setReviews(getReviews);
-        console.log(getReviews)
     }, [id]);
 
     if (!restaurant) return null;
@@ -45,12 +46,24 @@ export default function RestaurantPage() {
                     </Text>
                 </View>
 
-                <View className="mb-6 p-4 rounded-xl bg-gray-100">
-                    <Text className="text-lg font-semibold mb-2">Reviews</Text>
-                    {reviews.map((review) => (
-                        <RestaurantPost key={review.id} post={review}/>
-                    ))}
-                </View>
+                <Tabs value={tab} onValueChange={setTab} className="mb-6 p-4 rounded-xl bg-gray-100">
+                    <TabsList>
+                        <TabsTrigger value="deal"><Text>Deals</Text></TabsTrigger>
+                        <TabsTrigger value="reviews"><Text>Reviews</Text></TabsTrigger>
+                    </TabsList>
+
+                    <TabsContent value="deal">
+
+                    </TabsContent>
+
+                    <TabsContent value="reviews">
+                        <View className="rounded-xl bg-gray-100">
+                            {reviews.map((review) => (
+                                <RestaurantPost key={review.id} post={review}/>
+                            ))}
+                        </View>
+                    </TabsContent>
+                </Tabs>
             </ScrollView>
         </SafeAreaView>
     );
