@@ -5,6 +5,7 @@ import {Card, CardHeader} from "@/components/ui/card";
 
 const TabLogin = () => {
     const [userEmail, setUserEmail] = useState("");
+    const [focused, setFocused] = useState(false);
 
     const handleSubmitUser = () => {
         console.log(userEmail);
@@ -25,14 +26,14 @@ const TabLogin = () => {
                         placeholder="youremail@address.com"
                         value={userEmail}
                         onChangeText={setUserEmail}
-                        className="border border-gray-300 rounded-md px-3 py-2"
+                        className="border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2"
                     />
 
                     <Text className="text-sm font-medium">Password:</Text>
                     <TextInput
                         numberOfLines={1}
-                        placeholder="youremail@address.com"
-                        className="border border-gray-300 rounded-md px-3 py-2"
+                        placeholder="password"
+                        className="border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2"
                     />
 
                     <Pressable
