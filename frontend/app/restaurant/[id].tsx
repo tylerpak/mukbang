@@ -1,4 +1,4 @@
-import {View, Text, ScrollView} from "react-native";
+import {View, Text, ScrollView, Pressable, Linking} from "react-native";
 import {Stack, useLocalSearchParams} from "expo-router";
 import {SafeAreaView} from "react-native-safe-area-context";
 import {useEffect, useState} from "react";
@@ -15,6 +15,14 @@ export default function RestaurantPage() {
 
     const getRestaurant = sampleRestaurants.find((rest) => rest.id === Number(id));
     const getReviews = samplePosts.filter((reviews) => reviews.restaurant.id === Number(id));
+
+    const openMap = () => {
+        const address = "2511 Durwood St Austin, TX";
+
+        const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+
+        Linking.openURL(url);
+    };
 
     useEffect(() => {
         setRestaurant(getRestaurant);
@@ -39,11 +47,17 @@ export default function RestaurantPage() {
                     </Text>
                 </View>
 
-                <View className="mb-6 p-4 rounded-xl bg-gray-100">
+                <View className="mb-6 p-4 rounded-xl bg-gray-100 gap-2">
                     <Text className="text-lg font-semibold mb-2">Location</Text>
-                    <Text className="text-gray-700 text-sm">
+                    <Text className="text-gray-700 text-sm ">
                         123 Main St, Austin, TX
                     </Text>
+                    <Pressable
+                        onPress={openMap}
+                        className="bg-blue-500 p-2 rounded-xl items-center"
+                    >
+                        <Text className="text-white font-semibold">View on Map</Text>
+                    </Pressable>
                 </View>
 
                 <View className="flex w-full max-w-sm flex-col gap-6">
@@ -54,7 +68,6 @@ export default function RestaurantPage() {
                         </TabsList>
 
                         <TabsContent value="deal">
-                            <Text>What</Text>
                         </TabsContent>
 
                         <TabsContent value="reviews">
