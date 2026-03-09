@@ -13,7 +13,7 @@ const RestaurantPost = ({post}: RestaurantPostProps) => {
     const convertedPostTime = postTime.toLocaleDateString();
 
     return (
-        <Card style={styles.card}>
+        <Card className={'bg-gray-100'}>
             <CardHeader>
                 <CardTitle>{post?.restaurant.name}</CardTitle>
                 <CardDescription>{post?.createdBy.username}</CardDescription>
@@ -27,14 +27,5 @@ const RestaurantPost = ({post}: RestaurantPostProps) => {
         </Card>
     );
 };
-
-const styles = StyleSheet.create({
-    card: {
-        marginBottom: 12,
-        padding: 16,
-        borderRadius: 12,
-        backgroundColor: "#fff",
-    },
-});
 
 export default RestaurantPost;
