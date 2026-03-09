@@ -16,7 +16,7 @@ public class HappyHourDealService {
 
     private HappyHourDealService(HappyHourDealRepository happyHourDealRepository) {
         this.happyHourDealRepository = happyHourDealRepository;
-    };
+    }
 
     public HappyHourDeal save(HappyHourDeal happyHourDeal) {
         return happyHourDealRepository.save(happyHourDeal);
