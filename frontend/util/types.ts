@@ -1,3 +1,5 @@
+import {LatLng} from "react-native-maps";
+
 export type User = {
     id?: number;
     email: string;
@@ -11,6 +13,8 @@ export type Restaurant = {
     website?: string;
     email?: string;
     cuisine?: string;
+    location?: string;
+    coords?: LatLng;
     posts?: Post[];
     happyHourDeals?: HappyHourDeal[];
 };
