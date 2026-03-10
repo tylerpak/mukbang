@@ -5,7 +5,7 @@ import * as Location from "expo-location";
 import {Text} from "@/components/ui/text";
 
 const Map = () => {
-    const [location, setLocation] = useState<Location.LocationObject | null>(null);
+    const [userLocation, setUserLocation] = useState<Location.LocationObject | null>(null);
 
     useEffect(() => {
         (async () => {
@@ -15,8 +15,10 @@ const Map = () => {
             }
 
             const loc = await Location.getCurrentPositionAsync({});
-            setLocation(loc);
+            setUserLocation(loc);
         })();
+
+
     }, []);
 
     if(!location) return(
@@ -28,15 +30,15 @@ const Map = () => {
     return (
         <View className={'flex-1'}>
             <MapView style={{flex: 1}}  region={{
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude,
+                latitude: userLocation?.coords.latitude,
+                longitude: userLocation?.coords.longitude,
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421,
             }}>
-                <MapMarker coordinate={{
-                    latitude: location.coords.latitude,
-                    longitude: location.coords.longitude
-                }} title={'Current location'}/>
+                {userLocation && <MapMarker coordinate={{
+                    latitude: userLocation.coords.latitude,
+                    longitude: userLocation.coords.longitude
+                }} title={'Current location'}/> }
             </MapView>
         </View>
     );
