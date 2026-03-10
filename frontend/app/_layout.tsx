@@ -8,7 +8,7 @@ export default function RootLayout() {
         // <Stack screenOptions={{header: () => <Header/>}}>
         // the header replaces react native's inherent back button
             <Stack>
-                <Stack.Screen name="(tabs)"/>
+                <Stack.Screen name="(tabs)" options={{title: 'Restaurants'}}/>
                 <Stack.Screen name="restaurant/[id]"/>
             </Stack>
     );
