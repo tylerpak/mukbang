@@ -7,10 +7,10 @@ export type User = {
 export type Restaurant = {
     id?: number;
     name: string;
-    number: string;
-    website: string;
-    email: string;
-    cuisine: string;
+    number?: string;
+    website?: string;
+    email?: string;
+    cuisine?: string;
     posts?: Post[];
     happyHourDeals?: HappyHourDeal[];
 };
