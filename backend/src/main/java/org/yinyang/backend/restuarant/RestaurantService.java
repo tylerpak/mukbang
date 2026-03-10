@@ -26,4 +26,8 @@ public class RestaurantService {
     public Restaurant getRestaurant (Long id) {
         return restaurantRepository.findById(id).orElseThrow();
     }
+
+    public Restaurant getRestaurantsByCuisine(String cuisine) {
+        return restaurantRepository.findAllByCuisine(cuisine);
+    }
 }
