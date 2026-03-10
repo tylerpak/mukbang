@@ -1505,7 +1505,7 @@
   resolved "https://registry.yarnpkg.com/@radix-ui/react-context/-/react-context-1.1.2.tgz#61628ef269a433382c364f6f1e3788a6dc213a36"
   integrity sha512-jCi/QKUM2r1Ju5a3J64TH2A5SpKAgh0LpknyqdQ4m6DCV0xJ2HG1xARRwNGPQfi1SLdLWZ1OJz6F4OMBBNiGJA==
 
-"@radix-ui/react-dialog@^1.1.1":
+"@radix-ui/react-dialog@^1.1.1", "@radix-ui/react-dialog@^1.1.14":
   version "1.1.15"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-dialog/-/react-dialog-1.1.15.tgz#1de3d7a7e9a17a9874d29c07f5940a18a119b632"
   integrity sha512-TCglVRtzlffRNxRMEyR36DGBLJpeusFcgMVD9PZEzAKnUs1lKCgX5u9BmC2Yg+LL9MgZDugFFs1Vl+Jp4t/PGw==
@@ -1879,12 +1879,29 @@
     "@rn-primitives/slot" "1.2.0"
     "@rn-primitives/types" "1.2.0"
 
-"@rn-primitives/hooks@1.3.0":
+"@rn-primitives/dialog@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@rn-primitives/dialog/-/dialog-1.2.0.tgz#8d831fbe7bd02de6891e31ba4d863864482ca6a0"
+  integrity sha512-18q+SZe7ioyMQRYIL+aSleqque1Ky18LOQGA8kDPryrGMf16LYStd61SshMlluqhL2T00ZkEjsSVgpU5ZXvcnQ==
+  dependencies:
+    "@radix-ui/react-dialog" "^1.1.14"
+    "@rn-primitives/hooks" "1.3.0"
+    "@rn-primitives/slot" "1.2.0"
+    "@rn-primitives/types" "1.2.0"
+
+"@rn-primitives/hooks@1.3.0", "@rn-primitives/hooks@^1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@rn-primitives/hooks/-/hooks-1.3.0.tgz#5e6ad5a96b520582b3a896581651064ea2292de8"
   integrity sha512-BR97reSu7uVDpyMeQdRJHT0w8KdS6jdYnOL6xQtqS2q3H6N7vXBlX4LFERqJZphD+aziJFIAJ3HJF1vtt6XlpQ==
   dependencies:
     "@rn-primitives/types" "1.2.0"
+
+"@rn-primitives/portal@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@rn-primitives/portal/-/portal-1.3.0.tgz#2f352eda26a59d18df96a3ccde13c61876097b5e"
+  integrity sha512-a2DSce7TcSfcs0cCngLadAJOvx/+mdH9NRu+GxkX8NPRsGGhJvDEOqouMgDqLwx7z9mjXoUaZcwaVcemUSW9/A==
+  dependencies:
+    zustand "^5.0.4"
 
 "@rn-primitives/slot@1.2.0", "@rn-primitives/slot@^1.2.0":
   version "1.2.0"
@@ -7625,3 +7642,8 @@ zod@^3.25.76:
   version "3.25.76"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.76.tgz#26841c3f6fd22a6a2760e7ccb719179768471e34"
   integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
+
+zustand@^5.0.4:
+  version "5.0.11"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-5.0.11.tgz#99f912e590de1ca9ce6c6d1cab6cdb1f034ab494"
+  integrity sha512-fdZY+dk7zn/vbWNCYmzZULHRrss0jx5pPFiOuMZ/5HJN6Yv3u+1Wswy/4MpZEkEGhtNH+pwxZB8OKgUBPzYAGg==

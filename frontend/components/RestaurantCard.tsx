@@ -1,18 +1,18 @@
 import {HappyHourDeal, Restaurant} from "@/util/types";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Text, TouchableOpacity} from "react-native";
-import {router} from "expo-router";
 import {useEffect, useState} from "react";
 import {sampleHappyHourDeals, sampleRestaurants} from "@/util/sampleData";
 
 interface RestaurantCardProps  {
     restaurant: Restaurant
+    setSelectedRestaurant: (restaurant: Restaurant) => void;
 }
 
-const RestaurantCard = ( {restaurant}: RestaurantCardProps) => {
+const RestaurantCard = ( {restaurant, setSelectedRestaurant}: RestaurantCardProps) => {
     const [deals, setDeals] = useState<HappyHourDeal[]>([])
     const handlePress = () => {
-        router.push(`/restaurant/${restaurant.id}`);
+        setSelectedRestaurant(restaurant);
     };
 
 
