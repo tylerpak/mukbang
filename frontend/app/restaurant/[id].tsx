@@ -44,7 +44,11 @@ export default function RestaurantPage() {
 
     return (
         <SafeAreaView className="flex-1 bg-white gap-3">
-            <Stack.Screen options={{title: restaurant.name}}/>
+            <Stack.Screen options={
+                {
+                    title: restaurant.name,
+                    headerStyle: {backgroundColor: '#F59E0B'},
+                }}/>
 
             <ScrollView contentContainerStyle={{padding: 5}} className="px-5 py-4">
 
