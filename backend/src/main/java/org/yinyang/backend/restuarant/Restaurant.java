@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.yinyang.backend.happyhourdeal.HappyHourDeal;
 import org.yinyang.backend.post.Post;
 
 import java.util.List;
@@ -25,6 +26,17 @@ public class Restaurant {
     @OneToMany
     @JoinColumn(name = "post_id", nullable = true)
     private List<Post> posts;
+
+    private String number;
+
+    private String website;
+
+    private String email;
+
+    private String cuisine;
+
+    @OneToMany(mappedBy = "restaurant")
+    private List<HappyHourDeal> happyHourDeal;
 
     public Restaurant() {
 
