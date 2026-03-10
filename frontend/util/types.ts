@@ -1,20 +1,35 @@
-export default interface AppUser {
-    id?: number,
-    email: string,
-    username: string,
-    createdPosts: Post[],
-}
+export type User = {
+    id?: number;
+    email: string;
+    username: string;
+};
 
-export interface Post {
-    id?: number,
-    description: string,
-    createdBy: AppUser,
-    createdOn: string,
-    restaurant: Restaurant,
-}
+export type Restaurant = {
+    id?: number;
+    name: string;
+    number?: string;
+    website?: string;
+    email?: string;
+    cuisine?: string;
+    posts?: Post[];
+    happyHourDeals?: HappyHourDeal[];
+};
 
-export interface Restaurant {
-    id: number,
-    name: string,
-    posts?: Post[],
-}
+export type Post = {
+    id?: number;
+    description: string;
+    createdBy: User;
+    createdOn: string;
+    restaurant?: Restaurant;
+};
+
+export type HappyHourDeal = {
+    id?: number;
+    restaurantId: number;
+    dealType: 'BEER' | 'COCKTAIL' | 'NONALCOHOLIC' | 'ENTREE' | 'APPETIZER' | 'DESSERT' | 'COMBO';
+    description: string;
+    value: number;
+    dayOfWeek: 'MONDAY'|'TUESDAY'|'WEDNESDAY'|'THURSDAY'|'FRIDAY'|'SATURDAY'|'SUNDAY';
+    startTime: string;
+    endTime: string;
+};

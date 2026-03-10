@@ -32,5 +32,10 @@ public class RestaurantController {
         return ResponseEntity.ok(restaurantService.getRestaurant(id));
     }
 
+    @GetMapping("/cuisine/{cuisine}")
+    public ResponseEntity<Restaurant> getRestaurantsByCuisine(@PathVariable String cuisine) {
+        return ResponseEntity.ok(restaurantService.getRestaurantsByCuisine(cuisine));
+    }
+
 
 }
