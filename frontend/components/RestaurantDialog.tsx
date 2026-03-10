@@ -50,7 +50,7 @@ const RestaurantDialog = ({restaurant, isOpen, onClose}: RestaurantDialogProps) 
                                 where the restaurant description will go
                             </Text>
                         </View>
-
+                        <Pressable>
                         <Accordion type='single' className={'mb-4'} collapsible>
                             <AccordionItem value='item-1' className={'border-0'}>
                                 <AccordionTrigger>
@@ -76,7 +76,7 @@ const RestaurantDialog = ({restaurant, isOpen, onClose}: RestaurantDialogProps) 
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
-
+                        </Pressable>
                         <View className="mb-6 p-4 rounded-xl bg-gray-100 gap-2">
                             <Text className="text-lg font-semibold mb-2">Location</Text>
                             <Text className="text-gray-700 text-sm ">

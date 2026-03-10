@@ -42,9 +42,7 @@
           }
         }
       ],
-        "react-native-maps",
       "expo-font",
-      "expo-image",
       "expo-web-browser"
     ],
     "experiments": {
