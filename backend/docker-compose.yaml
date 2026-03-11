@@ -1,5 +1,7 @@
 version: "3.8"
 
+name: mukbang
+
 services:
   postgres-db:
     container_name: mukbang_db
