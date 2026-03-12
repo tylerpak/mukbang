@@ -7,6 +7,8 @@ import {Dialog, DialogContent} from "@/components/ui/dialog";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import RestaurantPost from "@/components/RestaurantPost";
+import * as Location from "expo-location";
+import {router} from "expo-router";
 
 const hours = [
     {day: "Monday", hours: "9:00 AM - 9:00 PM"},
@@ -26,12 +28,12 @@ type RestaurantDialogProps = {
 const RestaurantDialog = ({restaurant, isOpen, onClose}: RestaurantDialogProps) => {
     const [tab, setTab] = useState('deal');
     const reviews = samplePosts.filter((reviews) => reviews.restaurant?.id === restaurant?.id);
-    const openMap = () => {
-        const address = "2511 Durwood St Austin, TX";
-
-        const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-
-        Linking.openURL(url);
+    const openMap = async () => {
+        if (!restaurant?.location) return null;
+        const coord = await Location.geocodeAsync(restaurant.location);
+        const latitude = coord[0].latitude;
+        const longitude = coord[0].longitude;
+        console.log(latitude, longitude);
     };
 
 
