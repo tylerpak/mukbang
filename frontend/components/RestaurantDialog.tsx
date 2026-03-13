@@ -23,9 +23,10 @@ const hours = [
 type RestaurantDialogProps = {
     restaurant: Restaurant | null;
     isOpen: boolean;
+    showLocation?: boolean;
     onClose: () => void;
 };
-const RestaurantDialog = ({restaurant, isOpen, onClose}: RestaurantDialogProps) => {
+const RestaurantDialog = ({restaurant, isOpen, showLocation = true, onClose}: RestaurantDialogProps) => {
     const [tab, setTab] = useState('deal');
     const reviews = samplePosts.filter((reviews) => reviews.restaurant?.id === restaurant?.id);
     const openMap = async () => {
@@ -84,12 +85,12 @@ const RestaurantDialog = ({restaurant, isOpen, onClose}: RestaurantDialogProps) 
                             <Text className="text-gray-700 text-sm ">
                                 123 Main St, Austin, TX
                             </Text>
-                            <Pressable
+                            {showLocation && <Pressable
                                 onPress={openMap}
                                 className="bg-blue-500 p-2 rounded-xl items-center"
                             >
                                 <Text className="text-white font-semibold">View on Map</Text>
-                            </Pressable>
+                            </Pressable>}
                         </View>
 
                         <View className="flex w-full max-w-sm flex-col gap-6">

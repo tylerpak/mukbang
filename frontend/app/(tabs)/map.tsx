@@ -5,10 +5,18 @@ import * as Location from "expo-location";
 import {Text} from "@/components/ui/text";
 import {Restaurant} from "@/util/types";
 import {sampleRestaurants} from "@/util/sampleData";
+import RestaurantDialog from "@/components/RestaurantDialog";
 
 const Map = () => {
     const [userLocation, setUserLocation] = useState<Location.LocationObject | null>(null);
     const [mappedLocations, setMappedLocations] = useState<Restaurant[]>([])
+    const [restaurantDialogOpen, setRestaurantDialogOpen] = useState<boolean>(false)
+    const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null)
+
+    const selectRestaurant = (restaurant: Restaurant) => {
+        setSelectedRestaurant(restaurant);
+        if(selectedRestaurant) setRestaurantDialogOpen(true);
+    }
 
 
     useEffect(() => {
@@ -53,9 +61,10 @@ const Map = () => {
                     longitude: userLocation.coords.longitude
                 }} title={'Current location'}/>
                 {mappedLocations.map((restaurant) => (
-                    restaurant.coords && <MapMarker key={restaurant.id} coordinate={restaurant.coords} title={restaurant.name} titleVisibility={'visible'}/>
+                    restaurant.coords && <MapMarker key={restaurant.id} coordinate={restaurant.coords} title={restaurant.name} titleVisibility={'visible'} onCalloutPress={() => selectRestaurant(restaurant)}/>
                 ))}
             </MapView>
+            <RestaurantDialog restaurant={selectedRestaurant} isOpen={restaurantDialogOpen} showLocation={false} onClose={() => setRestaurantDialogOpen(false)}/>
         </View>
     );
 };
