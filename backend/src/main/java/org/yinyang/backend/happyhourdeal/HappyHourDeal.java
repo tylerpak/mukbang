@@ -35,9 +35,6 @@ public class HappyHourDeal {
 
     private Integer value;
 
-    @ManyToMany
-    private List<HappyHourEntity> happyHours;
-
     public HappyHourDeal() {
 
     }

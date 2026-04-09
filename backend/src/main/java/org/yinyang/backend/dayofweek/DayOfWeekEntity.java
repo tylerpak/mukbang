@@ -21,6 +21,4 @@ public class DayOfWeekEntity {
     @Enumerated(EnumType.STRING)
     private DayEnum day;
 
-    @ManyToMany
-    private List<HappyHourEntity> happyHours;
 }
