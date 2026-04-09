@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
+import org.yinyang.backend.happyhour.HappyHourEntity;
 import org.yinyang.backend.restuarant.Restaurant;
 import org.yinyang.backend.users.Users;
 
@@ -13,6 +14,7 @@ import java.time.DayOfWeek;
 import java.time.Instant;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -25,8 +27,6 @@ public class HappyHourDeal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-    private Restaurant restaurant;
 
     @Enumerated(EnumType.STRING)
     private DealType dealType;
@@ -35,12 +35,8 @@ public class HappyHourDeal {
 
     private Integer value;
 
-    @Enumerated(EnumType.STRING)
-    private DayOfWeek dayOfWeek;
-
-    private LocalTime startTime;
-
-    private LocalTime endTime;
+    @ManyToMany
+    private List<HappyHourEntity> happyHours;
 
     public HappyHourDeal() {
 

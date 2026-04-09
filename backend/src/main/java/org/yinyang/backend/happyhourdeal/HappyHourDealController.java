@@ -18,28 +18,5 @@ public class HappyHourDealController {
         this.happyHourDealService = happyHourDealService;
     }
 
-    @PostMapping("/save")
-    public ResponseEntity<HappyHourDeal> saveDeal(@RequestBody HappyHourDeal happyHourDeal) {
-        HappyHourDeal savedDeal = happyHourDealService.save(happyHourDeal);
-        return ResponseEntity.ok(savedDeal);
-    }
-
-    @GetMapping("/restaurant/{restaurantId}")
-    public ResponseEntity<List<HappyHourDeal>> getDeals(@PathVariable Long restaurantId) {
-        List<HappyHourDeal> restaurantDeals = happyHourDealService.getAllDealsByRestaurantId(restaurantId);
-        return ResponseEntity.ok(restaurantDeals);
-    }
-
-    @GetMapping("/active")
-    public ResponseEntity<List<HappyHourDeal>> getActiveDeals() {
-        List<HappyHourDeal> activeDeals = happyHourDealService.getActiveDeals();
-        return ResponseEntity.ok(activeDeals);
-    }
-
-    @GetMapping("/day/{day}")
-    public ResponseEntity<List<HappyHourDeal>> getDealsByDay(@PathVariable DayOfWeek day) {
-        List<HappyHourDeal> happyHourDealByDay = happyHourDealService.getDealsByDay(day);
-        return ResponseEntity.ok(happyHourDealByDay);
-    }
 
 }
