@@ -24,9 +24,6 @@ public class Restaurant {
 
     private String name;
 
-    @OneToMany
-    @JoinColumn(name = "post_id", nullable = true)
-    private List<Post> posts;
 
     private String number;
 

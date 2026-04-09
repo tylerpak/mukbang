@@ -31,7 +31,7 @@ public class Post {
     @CreatedDate
     private Instant createdOn;
 
-    @OneToOne
+    @ManyToOne
     private Restaurant restaurant;
 
 
