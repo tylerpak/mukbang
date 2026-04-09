@@ -18,21 +18,5 @@ public class HappyHourDealService {
         this.happyHourDealRepository = happyHourDealRepository;
     }
 
-    public HappyHourDeal save(HappyHourDeal happyHourDeal) {
-        return happyHourDealRepository.save(happyHourDeal);
-    }
 
-    public List<HappyHourDeal> getAllDealsByRestaurantId(Long restaurantId) {
-        return happyHourDealRepository.getHappyHourDealsByRestaurantId(restaurantId);
-    }
-
-    public List<HappyHourDeal> getActiveDeals() {
-        DayOfWeek today = LocalDateTime.now().getDayOfWeek();
-        LocalTime now = LocalTime.now();
-        return happyHourDealRepository.findHappyHourDealsByDayOfWeekAndStartTime(today, now);
-    }
-
-    public List<HappyHourDeal> getDealsByDay(DayOfWeek day) {
-        return happyHourDealRepository.getHappyHourDealByDayOfWeek(day);
-    }
 }

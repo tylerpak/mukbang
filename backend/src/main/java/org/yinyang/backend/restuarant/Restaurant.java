@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.yinyang.backend.happyhour.HappyHourEntity;
 import org.yinyang.backend.happyhourdeal.HappyHourDeal;
 import org.yinyang.backend.post.Post;
 
@@ -36,7 +37,7 @@ public class Restaurant {
     private String cuisine;
 
     @OneToMany(mappedBy = "restaurant")
-    private List<HappyHourDeal> happyHourDeal;
+    private List<HappyHourEntity> happyHours;
 
     public Restaurant() {
 

@@ -7,9 +7,5 @@ import java.time.LocalTime;
 import java.util.List;
 
 public interface HappyHourDealRepository extends CrudRepository<HappyHourDeal, Long> {
-    List<HappyHourDeal> getHappyHourDealsByRestaurantId(Long restaurantId);
 
-    List<HappyHourDeal> getHappyHourDealByDayOfWeek(DayOfWeek day);
-
-    List<HappyHourDeal> findHappyHourDealsByDayOfWeekAndStartTime(DayOfWeek dayOfWeek, LocalTime startTime);
 }
